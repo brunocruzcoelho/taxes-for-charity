@@ -1,0 +1,12 @@
+%table
+  %thead
+    %tr
+      %th NIF
+      %th Name
+      %th City
+  %tbody
+    - @associations.each do |association|
+      %tr
+        %td= association.nif
+        %td= association.name
+        %td= association.city
