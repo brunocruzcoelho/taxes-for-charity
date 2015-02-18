@@ -1,9 +1,17 @@
 %h1 Associations Admin
 
 = flash[:notice]
+= flash[:error]
 
 %div
   %h3 Import a CSV File
   = form_tag admin_import_path, multipart: true do
-    = file_field_tag :file
-    = submit_tag "Import CSV"
+
+    .fieldset
+      .div
+        = file_field_tag :file
+        = submit_tag "Import CSV"
+
+      .div
+        = check_box_tag(:delete_asociations_before_import)
+        = label_tag(:delete_asociations_before_import, "Delete existing Associations before import")
