@@ -1,3 +1,14 @@
+Search:
+= form_tag search_associations_path, method: 'get' do
+  %p
+    = text_field_tag :search, params[:search]
+    = submit_tag "Search"
+  %p
+    = radio_button_tag :search_field, 'name'
+    Name
+    = radio_button_tag :search_field, 'city'
+    City
+
 %table
   %thead
     %tr
