@@ -10,7 +10,10 @@ class Admin::AssociationsController < ApplicationController
 
     if file = params[:file]
       CSV.foreach(file.path, headers: true) do |row|
-        Association.create(nif: row[0], name: row[1], city: row[2])
+        name = row[1].split(' ').map { |word| word.capitalize }
+        name = name.join ' '
+
+        Association.create(nif: row[0], name: name, city: row[2])
       end
 
       redirect_to admin_url, notice: "Associations CSV imported."
