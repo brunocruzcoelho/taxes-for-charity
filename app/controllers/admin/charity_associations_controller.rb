@@ -1,4 +1,4 @@
-class Admin::AssociationsController < ApplicationController
+class Admin::CharityAssociationsController < ApplicationController
   require 'csv'
   before_action :validate_admin_key
 
@@ -6,17 +6,17 @@ class Admin::AssociationsController < ApplicationController
   end
 
   def import
-    Association.delete_all if params[:delete_asociations_before_import]
+    CharityAssociation.delete_all if params[:delete_charity_asociations_before_import]
 
     if file = params[:file]
       CSV.foreach(file.path, headers: true) do |row|
         name = row[1].split(' ').map { |word| word.capitalize }
         name = name.join ' '
 
-        Association.create(nif: row[0], name: name, city: row[2])
+        CharityAssociation.create(nif: row[0], name: name, city: row[2])
       end
 
-      redirect_to admin_url, notice: "Associations CSV imported."
+      redirect_to admin_url, notice: "Charity Associations CSV imported."
     else
       redirect_to admin_url, notice: "Please choose a file."
     end

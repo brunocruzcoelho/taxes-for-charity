@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  root 'associations#index'
+  root 'charity_associations#index'
 
-  resources :associations, only: [:index] do
+  resources :charity_associations, only: [:index] do
     collection do
       get :search
     end
   end
 
   namespace :admin do
-    get '/', to: 'associations#index'
-    post 'import', to: 'associations#import'
+    get '/', to: 'charity_associations#index'
+    post 'import', to: 'charity_associations#import'
   end
 end

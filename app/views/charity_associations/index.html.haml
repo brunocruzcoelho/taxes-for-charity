@@ -1,5 +1,5 @@
 Search:
-= form_tag search_associations_path, method: 'get' do
+= form_tag search_charity_associations_path, method: 'get' do
   %p
     = text_field_tag :search, params[:search]
     = submit_tag "Search"
@@ -16,8 +16,8 @@ Search:
       %th Name
       %th City
   %tbody
-    - @associations.each do |association|
+    - @charity_associations.each do |charity_association|
       %tr
-        %td= association.nif
-        %td= association.name
-        %td= association.city
+        %td= charity_association.nif
+        %td= charity_association.name
+        %td= charity_association.city
