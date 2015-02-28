@@ -13,5 +13,11 @@
         = submit_tag "Import CSV"
 
       .div
-        = check_box_tag(:delete_asociations_before_import)
-        = label_tag(:delete_asociations_before_import, "Delete existing Charity Associations before import")
+        = radio_button_tag :info_type, 'charity_associations'
+        IPSS
+        = radio_button_tag :info_type, 'activity_codes'
+        CAE
+
+      .div
+        = check_box_tag(:delete_before_import)
+        = label_tag(:delete_before_import, "Delete existing data [ipss|cae] before import")
