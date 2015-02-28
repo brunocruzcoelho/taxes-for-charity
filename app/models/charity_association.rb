@@ -1,5 +1,5 @@
 class CharityAssociation < ActiveRecord::Base
-  has_one :activity_code
+  belongs_to :activity_code
 
   validates :name, :nif, :city, presence: true
 
