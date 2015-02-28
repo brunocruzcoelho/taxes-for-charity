@@ -20,6 +20,10 @@ Install the	pg gem:
 And install remaining gems:    
 
     bundle install
+    
+### Run
+
+    ADMIN_KEY=xpto1234567890 bundle exec rails s
 
 ### Deploy
 
