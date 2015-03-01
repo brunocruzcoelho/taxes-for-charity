@@ -7,6 +7,8 @@ gem 'pg',    '0.18.1'
 
 gem 'puma'
 
+gem 'rails_admin'
+
 # heroku
 gem 'rails_12factor', group: :production
 
