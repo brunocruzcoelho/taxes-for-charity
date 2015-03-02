@@ -1,6 +1,6 @@
 class Admin::CharityAssociationsUploaderController < ApplicationController
   require 'csv'
-  before_action :validate_admin_key
+  before_action :authenticate_admin_user!
 
   def index
   end
@@ -16,15 +16,6 @@ class Admin::CharityAssociationsUploaderController < ApplicationController
   end
 
   private
-
-  def validate_admin_key
-    session[:admin_key] ||= params[:admin_key]
-
-    unless Rails.application.config.admin_key.eql?(session[:admin_key])
-      session[:admin_key] = nil
-      flash[:error] = 'You must have an admin key to perform admin actions'
-    end
-  end
 
   def import_charity_associations_file
     CharityAssociation.delete_all if params[:delete_before_import]

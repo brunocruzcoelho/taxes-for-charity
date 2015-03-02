@@ -43,7 +43,7 @@ Create databases and users:
 
 ### Run
 
-    ADMIN_KEY=xpto1234567890 bundle exec rails s
+    bundle exec rails s
 
 ### Deploy
 
