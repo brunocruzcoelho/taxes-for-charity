@@ -5,7 +5,7 @@ ruby '2.1.5'
 gem 'rails', '4.2.0'
 gem 'pg',    '0.18.1'
 
-gem 'puma'
+gem 'puma', '2.11.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 

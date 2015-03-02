@@ -245,7 +245,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg (= 0.18.1)
-  puma
+  puma (= 2.11.0)
   rails (= 4.2.0)
   rails_12factor
   rubocop (~> 0.29.0)
