@@ -1,12 +1,12 @@
-class Admin::CharityAssociationsController < ApplicationController
+class Admin::CharityAssociationsUploaderController < ApplicationController
   require 'csv'
-  before_action :validate_admin_key
+  before_action :authenticate_admin_user!
 
   def index
   end
 
   def import
-    redirect_to admin_url, notice: 'Please choose the type of data you are uploading (IPSS or CAE).' and return if params[:info_type].blank?
+    redirect_to admin_uploader_url, notice: 'Please choose the type of data you are uploading (IPSS or CAE).' and return if params[:info_type].blank?
 
     if params[:info_type].eql?('charity_associations')
       import_charity_associations_file
@@ -16,15 +16,6 @@ class Admin::CharityAssociationsController < ApplicationController
   end
 
   private
-
-  def validate_admin_key
-    session[:admin_key] ||= params[:admin_key]
-
-    unless Rails.application.config.admin_key.eql?(session[:admin_key])
-      session[:admin_key] = nil
-      flash[:error] = 'You must have an admin key to perform admin actions'
-    end
-  end
 
   def import_charity_associations_file
     CharityAssociation.delete_all if params[:delete_before_import]
@@ -37,9 +28,9 @@ class Admin::CharityAssociationsController < ApplicationController
         CharityAssociation.create(nif: row[0], name: name, city: row[2])
       end
 
-      redirect_to admin_url, notice: 'Charity Associations CSV imported.'
+      redirect_to admin_uploader_url, notice: 'Charity Associations CSV imported.'
     else
-      redirect_to admin_url, notice: 'Please choose a file.'
+      redirect_to admin_uploader_url, notice: 'Please choose a file.'
     end
   end
 
@@ -51,9 +42,9 @@ class Admin::CharityAssociationsController < ApplicationController
         ActivityCode.create(code: row[1], name: row[2])
       end
 
-      redirect_to admin_url, notice: 'Activity Codes CSV imported.'
+      redirect_to admin_uploader_url, notice: 'Activity Codes CSV imported.'
     else
-      redirect_to admin_url, notice: 'Please choose a file.'
+      redirect_to admin_uploader_url, notice: 'Please choose a file.'
     end
   end
 end

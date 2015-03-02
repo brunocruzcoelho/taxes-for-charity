@@ -6,8 +6,8 @@ gem 'rails', '4.2.0'
 gem 'pg',    '0.18.1'
 
 gem 'puma'
-
-gem 'rails_admin'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
 
 # heroku
 gem 'rails_12factor', group: :production
