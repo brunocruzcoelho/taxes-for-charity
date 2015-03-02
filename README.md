@@ -3,7 +3,8 @@
 ### Installation
 
     brew install rbenv
-    rbenv install 2.1.5
+    brew install readline
+    RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline` rbenv install 2.1.5
     gem install bundler
 
 Download [Postgres.app](http://postgresapp.com).
@@ -14,7 +15,7 @@ Configure your path, possibly in  `~/.bash_profile`:
 
 Install the	pg gem:
 
-    sudo ARCHFLAGS="-arch x86_64" gem install pg
+    ARCHFLAGS="-arch x86_64" gem install pg
 
 
 And install remaining gems:
