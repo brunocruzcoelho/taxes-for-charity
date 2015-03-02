@@ -1,4 +1,4 @@
-class Admin::CharityAssociationsController < ApplicationController
+class Admin::CharityAssociationsUploaderController < ApplicationController
   require 'csv'
   before_action :validate_admin_key
 
@@ -6,7 +6,7 @@ class Admin::CharityAssociationsController < ApplicationController
   end
 
   def import
-    redirect_to admin_url, notice: 'Please choose the type of data you are uploading (IPSS or CAE).' and return if params[:info_type].blank?
+    redirect_to admin_uploader_url, notice: 'Please choose the type of data you are uploading (IPSS or CAE).' and return if params[:info_type].blank?
 
     if params[:info_type].eql?('charity_associations')
       import_charity_associations_file
@@ -37,9 +37,9 @@ class Admin::CharityAssociationsController < ApplicationController
         CharityAssociation.create(nif: row[0], name: name, city: row[2])
       end
 
-      redirect_to admin_url, notice: 'Charity Associations CSV imported.'
+      redirect_to admin_uploader_url, notice: 'Charity Associations CSV imported.'
     else
-      redirect_to admin_url, notice: 'Please choose a file.'
+      redirect_to admin_uploader_url, notice: 'Please choose a file.'
     end
   end
 
@@ -51,9 +51,9 @@ class Admin::CharityAssociationsController < ApplicationController
         ActivityCode.create(code: row[1], name: row[2])
       end
 
-      redirect_to admin_url, notice: 'Activity Codes CSV imported.'
+      redirect_to admin_uploader_url, notice: 'Activity Codes CSV imported.'
     else
-      redirect_to admin_url, notice: 'Please choose a file.'
+      redirect_to admin_uploader_url, notice: 'Please choose a file.'
     end
   end
 end

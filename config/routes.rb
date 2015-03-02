@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get '/', to: 'charity_associations#index'
-    post 'import', to: 'charity_associations#import'
+    get '/uploader', to: 'charity_associations_uploader#index'
+    post 'import', to: 'charity_associations_uploader#import'
   end
 end
