@@ -20,14 +20,10 @@ CharityAssociation.includes(:activity_code).where( activity_codes: { id: nil }).
       activity_code_name = item.inner_html
       puts "\t\t got this: #{activity_code_name} \n" if VERBOSE
 
-      # the results are sorted for the one with bigger id because it's the more specific and maybe the correct!
-      activity_code = ActivityCode.where("lower(name) LIKE ?", "%#{activity_code_name.downcase}%").order(code: :desc).first
-
-      if activity_code
+      if activity_code = ActivityCode.where("lower(name) LIKE ?", "%#{activity_code_name.downcase}%").first
         puts "\t\t FOUND activity code: #{activity_code.name}" if VERBOSE
       else
-        activity_code = ActivityCode.new(name: activity_code_name)
-        activity_code.save
+        activity_code = ActivityCode.create(name: activity_code_name)
         puts "\t\t created activity code: #{activity_code.name}" if VERBOSE
       end
 
