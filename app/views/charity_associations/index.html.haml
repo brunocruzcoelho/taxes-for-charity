@@ -24,16 +24,18 @@ Search:
         %td= charity_association.name
         %td= charity_association.city
 
-%hr
-%hr
 
-%table
-  %thead
-    %tr
-      %th Code
-      %th Activity
-  %tbody
-    - @activity_codes.each do |activity_code|
+- if @activity_codes
+  %hr
+  %hr
+
+  %table
+    %thead
       %tr
-        %td= activity_code.code
-        %td= activity_code.name
+        %th Code
+        %th Activity
+    %tbody
+      - @activity_codes.each do |activity_code|
+        %tr
+          %td= activity_code.code
+          %td= activity_code.name
