@@ -1,6 +1,7 @@
 class CharityAssociationsController < ApplicationController
   def index
     @charity_associations = CharityAssociation.all
+    @activity_codes = ActivityCode.all
   end
 
   def search
