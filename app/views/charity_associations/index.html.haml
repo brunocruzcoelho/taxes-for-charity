@@ -23,3 +23,17 @@ Search:
         %td= charity_association.activity_code.try { |ac| "#{ac.name} [#{ac.code}]" }
         %td= charity_association.name
         %td= charity_association.city
+
+%hr
+%hr
+
+%table
+  %thead
+    %tr
+      %th Code
+      %th Activity
+  %tbody
+    - @activity_codes.each do |activity_code|
+      %tr
+        %td= activity_code.code
+        %td= activity_code.name
