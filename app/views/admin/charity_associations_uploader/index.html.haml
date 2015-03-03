@@ -21,3 +21,12 @@
       .div
         = check_box_tag(:delete_before_import)
         = label_tag(:delete_before_import, "Delete existing data [ipss|cae] before import")
+
+%div
+  %h3 Import a new CSV File
+  = form_tag admin_import_new_path, multipart: true do
+
+    .fieldset
+      .div
+        = file_field_tag :file
+        = submit_tag "Import new CSV"
