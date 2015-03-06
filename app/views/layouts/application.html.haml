@@ -1,0 +1,51 @@
+!!! Strict
+:plain
+  <!--[if lte IE 8]><html id="seedrs" lang="en-US" class="no-js ie8andlower ie8"><![endif]-->
+  <!--[if IE 9]><html id="seedrs" lang="en-US" class="no-js ie9"><![endif]-->
+  <!--[if !IE]><!--><html id="seedrs" lang="en-US" class="no-js"><!--<![endif]-->
+%head
+  %title= yield(:title) || "meio por cento"
+  %meta{:name => "viewport", :content => "width=device-width,initial-scale=1"}
+  %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge,Chrome=1"}
+
+  = stylesheet_link_tag("application.css")
+
+%body
+  %header.content
+    %h1.site-title<>
+      %a{:href => root_path}
+        %span meio
+        %b por
+        %span cento.pt
+
+  %nav.content
+    %ul
+      %li= link_to("Home", root_path)
+      %li= link_to("Home", root_path)
+      %li= link_to("Home", root_path)
+
+
+  = yield
+
+  %footer.content
+    &copy; 2015 — meioporcento.pt
+
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+-# <!DOCTYPE html>
+-# <html>
+-# <head>
+-#   <title>Taxes for Charity</title>
+-#   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+-#   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+-#   <%= csrf_meta_tags %>
+-# </head>
+-# <body>
+
+-# <%= yield %>
+
+-# XX
+
+
+-# </body>
+-# </html>
