@@ -1,0 +1,19 @@
+$colors: (
+  "primary": #E54151,
+  "gray-light": #ddd,
+  "gray-extra-light": #f9f9f9,
+  "logo-veil": rgba(249, 249, 249, 0.9)
+);
+$darken_amount: 20%;
+$lighten_amount: 20%;
+
+@function color($name, $tone: "base") {
+  $color: map-get($colors, $name);
+
+  @if $tone == "darken" {
+    $color: darken($color, $darken_amount);
+  } @else if $tone == "lighten" {
+    $color: lighten($color, $lighten_amount);
+  }
+  @return $color;
+}

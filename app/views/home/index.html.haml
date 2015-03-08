@@ -1,10 +1,47 @@
 = flash[:notice]
 = flash[:error]
 
-= form_tag search_charity_associations_path, method: 'get' do
-  %p
-    = text_field_tag :search_term, nil, placeholder: 'O que procura?'
-    = select_tag :activity_code, options_from_collection_for_select(ActivityCode.all, :id, :name), :prompt => 'Todas as causas'
-    = select_tag :city, options_for_select(CharityAssociation.uniq.pluck(:city)), :prompt => 'Em Portugal'
-    = submit_tag 'Pesquisar'
+- #= form_tag search_charity_associations_path, method: 'get' do
+- #  %p
+- #    = text_field_tag :search_term, nil, placeholder: 'O que procura?'
+- #    = select_tag :activity_code, options_from_collection_for_select(ActivityCode.all, :id, :name), :prompt => 'Todas as causas'
+- #    = select_tag :city, options_for_select(CharityAssociation.uniq.pluck(:city)), :prompt => 'Em Portugal'
+- #    = submit_tag 'Pesquisar'
+
+
+.search-box
+  .content
+    = form_tag search_charity_associations_path, method: 'get' do
+      %p.search-line
+        %span.small-4.field
+          = text_field_tag :search, params[:search], :placeholder => "Nome de instituição"
+        %span.small-3.field
+          %label{:class => "assist", :for => "tipo_causa"} Tipo de causa
+          = select_tag :activity_code, options_from_collection_for_select(ActivityCode.all, :id, :name), :prompt => 'Todas as causas', :id => 'tipo_causa'
+        %span.small-3.field
+          %label{:class => "assist", :for => "localidade"} Localidade
+          = select_tag :city, options_for_select(CharityAssociation.uniq.pluck(:city)), :prompt => 'Em Portugal', :id => 'localidade'
+
+        %span.small-2
+          %button{:type => "submit", :class => "button submit"} Pesquisar
+
+.info-box#info
+  .content
+    %h2 Como funciona
+
+    %p
+      Todos os anos, ao entregar a sua declaração do IRS, pode
+      %b doar 0.5%
+      do imposto total liquidado pelo Estado, a uma entidade particular ou de solidariedade social
+      religiosa ou de utilidade pública reconhecida pelo Estado. Esta operação não acarreta nenhuns
+      custos para o contribuinte e não afecta o valor a receber em caso de reembolso.
+
+    %p
+      Para tal, basta preenchar o
+      %b quadro 9 do anexo H
+      com o nome da instituição e o número de contribuinte em NIPC.
+
+    %h2 Sobre o meioporcento.pt
+
+    %p Este projecto procura facilitar a procura de entidades abrangidas e reconhecidas pelo Estado. O contribuinte pode através da causa ou localização encontrar a entidade a quem doar parte do seu IRS.
 

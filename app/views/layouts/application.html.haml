@@ -1,8 +1,8 @@
 !!! Strict
 :plain
-  <!--[if lte IE 8]><html id="seedrs" lang="en-US" class="no-js ie8andlower ie8"><![endif]-->
-  <!--[if IE 9]><html id="seedrs" lang="en-US" class="no-js ie9"><![endif]-->
-  <!--[if !IE]><!--><html id="seedrs" lang="en-US" class="no-js"><!--<![endif]-->
+  <!--[if lte IE 8]><html lang="en-US" class="no-js ie8andlower ie8"><![endif]-->
+  <!--[if IE 9]><html lang="en-US" class="no-js ie9"><![endif]-->
+  <!--[if !IE]><!--><html lang="en-US" class="no-js"><!--<![endif]-->
 %head
   %title= yield(:title) || "meio por cento"
   %meta{:name => "viewport", :content => "width=device-width,initial-scale=1"}
@@ -10,20 +10,24 @@
 
   = stylesheet_link_tag("application.css")
 
+  %script{:src => "//use.typekit.net/twz1zse.js"}
+  %script try{Typekit.load();}catch(e){}
 %body
-  %header.content
-    %h1.site-title<>
-      %a{:href => root_path}
-        %span meio
-        %b por
-        %span cento.pt
+  %header.site-header
+    .content
+      %h1.site-title<>
+        %a.site-root{:href => root_path}
+          %span meio por cento
+        %a.info{:href => "#info"}
+          %span.assist mais informação
 
-  %nav.content
-    %ul
-      %li= link_to("Home", root_path)
-      %li= link_to("Home", root_path)
-      %li= link_to("Home", root_path)
-
+      %p.sub-title A forma mais fácil de ajudar.
+      %p.sub-sub-title
+        Reverta
+        %b 0.5%
+        do seu
+        %abbr{:title => "Imposto sobre o Rendimento das Pessoas Singulares"} IRS
+        a uma instituição de cariz social.
 
   = yield
 

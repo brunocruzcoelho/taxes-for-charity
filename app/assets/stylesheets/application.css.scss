@@ -30,8 +30,20 @@
   overflow: hidden;
 }
 
-.first-part {
+.site-header,
+.search-box {
   background: color("gray-extra-light");
+  border-style: solid;
+  border-color: color("gray-light", "darken");
+  border-width: 0;
+}
+
+.site-header {
+  border-width: 5px 5px 0px 5px;
+}
+.search-box {
+  padding-bottom: 5%;
+  border-width: 0 5px 5px 5px;
 }
 
 .site-header {
