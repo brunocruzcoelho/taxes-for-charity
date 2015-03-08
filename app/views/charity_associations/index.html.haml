@@ -1,14 +1,3 @@
-Search:
-= form_tag search_charity_associations_path, method: 'get' do
-  %p
-    = text_field_tag :search, params[:search]
-    = submit_tag "Search"
-  %p
-    = radio_button_tag :search_field, 'name'
-    Name
-    = radio_button_tag :search_field, 'city'
-    City
-
 %table
   %thead
     %tr
@@ -23,7 +12,6 @@ Search:
         %td= charity_association.activity_code.try { |ac| "#{ac.name} [#{ac.code}]" }
         %td= charity_association.name
         %td= charity_association.city
-
 
 - if @activity_codes
   %hr
