@@ -1,15 +1,17 @@
 class CharityAssociationsController < ApplicationController
-  def index
-    @charity_associations = CharityAssociation.all
-    @activity_codes = ActivityCode.all
+  def search
+    redirect_to root_url, notice: 'IPSS podem ter nomes complicados mas, por favor, escreva alguma coisa' and return if params[:search_term].blank?
+
+    chain = default_chain(params[:search_term])
+    chain = chain.where(city: params[:city]) unless params[:city].blank?
+    chain = chain.where(activity_code_id: params[:activity_code]) unless params[:activity_code].blank?
+
+    @charity_associations = chain
   end
 
-  def search
-    redirect_to action: :index and return if params[:search].blank?
+  private
 
-    search_field = params[:search_field].blank? ? 'name' : params[:search_field]
-
-    @charity_associations = CharityAssociation.where("lower(#{search_field}) LIKE ?", "%#{(params[:search]).downcase}%")
-    render :index
+  def default_chain(search_term)
+    CharityAssociation.where("lower(name) LIKE ?", "%#{(search_term).downcase}%")
   end
 end
