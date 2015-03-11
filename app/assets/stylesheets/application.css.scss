@@ -133,3 +133,42 @@
   background: white;
   padding: 7% 0;
 }
+
+.steps {
+  padding-top: 3rem;
+  list-style: none;
+  text-align: center;
+  font-size: 0;
+
+  li {
+    display: inline-block;
+    vertical-align: top;
+    width: 33%;
+    font-size: 16px;
+    font-size: 1rem;
+  }
+
+  .icon {
+    max-width: 150px;
+    width: 100%;
+    display: inline-block;
+  }
+
+  i {
+    display: block;
+    height: 0;
+    width: 100%;
+    padding-bottom: 100%;
+    background-color: rgba(0,0,0,0.1);
+  }
+
+  p {
+    max-width: 17em;
+    margin: 0 auto;
+  }
+
+  strong {
+    font-weight: bold;
+    display: block;
+  }
+}

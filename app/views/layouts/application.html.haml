@@ -21,17 +21,20 @@
         %a.info{:href => "#info"}
           %span.assist mais informação
 
-      %p.sub-title A forma mais fácil de ajudar.
-      %p.sub-sub-title
-        Reverta
-        %b 0.5%
-        do seu
-        %abbr{:title => "Imposto sobre o Rendimento das Pessoas Singulares"} IRS
-        a uma instituição de cariz social.
+      - if content_for?(:subtitles)
+        = yield(:subtitles)
+      - else
+        %p.sub-title A forma mais fácil de ajudar.
+        %p.sub-sub-title
+          Reverta
+          %b 0.5%
+          do seu
+          %abbr{:title => "Imposto sobre o Rendimento das Pessoas Singulares"} IRS
+          a uma instituição de cariz social.
 
   = yield
 
-  %footer.content
+  %footer.content.text-center
     &copy; 2015 — meioporcento.pt
 
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
