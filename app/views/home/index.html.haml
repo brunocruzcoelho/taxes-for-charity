@@ -1,29 +1,7 @@
 = flash[:notice]
 = flash[:error]
 
-- #= form_tag search_charity_associations_path, method: 'get' do
-- #  %p
-- #    = text_field_tag :search_term, nil, placeholder: 'O que procura?'
-- #    = select_tag :activity_code, options_from_collection_for_select(ActivityCode.all, :id, :name), :prompt => 'Todas as causas'
-- #    = select_tag :city, options_for_select(CharityAssociation.uniq.pluck(:city)), :prompt => 'Em Portugal'
-- #    = submit_tag 'Pesquisar'
-
-
-.search-box
-  .content
-    = form_tag search_charity_associations_path, method: 'get' do
-      %p.search-line
-        %span.small-4.field
-          = text_field_tag :search, params[:search], :placeholder => "Nome de instituição"
-        %span.small-3.field
-          %label{:class => "assist", :for => "tipo_causa"} Tipo de causa
-          = select_tag :activity_code, options_from_collection_for_select(ActivityCode.all, :id, :name), :prompt => 'Todas as causas', :id => 'tipo_causa'
-        %span.small-3.field
-          %label{:class => "assist", :for => "localidade"} Localidade
-          = select_tag :city, options_for_select(CharityAssociation.uniq.pluck(:city)), :prompt => 'Em Portugal', :id => 'localidade'
-
-        %span.small-2
-          %button{:type => "submit", :class => "button submit"} Pesquisar
+= render :partial => 'charity_associations/search_box', :locals => { :show_steps => true }
 
 .info-box#info
   .content

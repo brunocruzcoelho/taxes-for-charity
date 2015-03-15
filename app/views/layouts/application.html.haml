@@ -4,15 +4,17 @@
   <!--[if IE 9]><html lang="en-US" class="no-js ie9"><![endif]-->
   <!--[if !IE]><!--><html lang="en-US" class="no-js"><!--<![endif]-->
 %head
-  %title= yield(:title) || "meio por cento"
+  %title meio por cento . pt— Reverta 0.5% do seu IRS a uma instituição de cariz social
   %meta{:name => "viewport", :content => "width=device-width,initial-scale=1"}
   %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge,Chrome=1"}
 
   = stylesheet_link_tag("application.css")
+  = stylesheet_link_tag("small.css", :media => "only screen and (max-width: 40.063em)")
 
   %script{:src => "//use.typekit.net/twz1zse.js"}
   %script try{Typekit.load();}catch(e){}
-%body
+- body_classes = params[:action].present? ? "action-#{params[:action]}" : ""
+%body{:class => body_classes}
   %header.site-header
     .content
       %h1.site-title<>

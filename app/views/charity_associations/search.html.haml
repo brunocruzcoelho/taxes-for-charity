@@ -1,14 +1,19 @@
-%table
-  %thead
-    %tr
-      %th NIF
-      %th Activity
-      %th Name
-      %th City
-  %tbody
-    - @charity_associations.each do |charity_association|
-      %tr
-        %td= charity_association.nif
-        %td= charity_association.activity_code.try { |ac| "#{ac.name}" }
-        %td= charity_association.name
-        %td= charity_association.city
+= render :partial => 'charity_associations/search_box'
+
+.search-results
+  .content
+    %h2.section-title #{@charity_associations.count} resultados
+    %table
+      %thead.hide-for-small
+        %tr
+          %th.small-1 NIF
+          %th.small-4 Causa
+          %th.small-5 Instituição
+          %th.small-2 Localidade
+      %tbody
+        - @charity_associations.each do |charity_association|
+          %tr
+            %td.col-nif{:data => { :column => "NIF" }}= charity_association.nif
+            %td.col-causa{:data => { :column => "Causa" }}= charity_association.activity_code.try { |ac| "#{ac.name}" }
+            %td.col-instituicao{:data => { :column => "Instituição" }}= charity_association.name
+            %td.col-localidade{:data => { :column => "Localidade" }}= charity_association.city

@@ -1,6 +1,6 @@
 class CharityAssociationsController < ApplicationController
   def search
-    redirect_to root_url, notice: 'IPSS podem ter nomes complicados mas, por favor, escreva alguma coisa' and return if params[:search_term].blank?
+    redirect_to root_url, notice: 'Introduza termos de pesquisa, por favor.' and return if params[:search_term].blank?
 
     chain = default_chain(params[:search_term])
     chain = chain.where(city: params[:city]) unless params[:city].blank?
