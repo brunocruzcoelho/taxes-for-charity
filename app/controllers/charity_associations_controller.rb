@@ -7,6 +7,12 @@ class CharityAssociationsController < ApplicationController
     chain = chain.where(activity_code_id: params[:activity_code]) unless params[:activity_code].blank?
 
     @charity_associations = chain
+
+    if @charity_associations
+      render partial: 'search_results'
+    else
+      redirect_to root_url, notice: 'Não foram encontradas instituições. Tente redefinir os termos de pesquisa, por favor.' and return if params[:search_term].blank?
+    end
   end
 
   private
