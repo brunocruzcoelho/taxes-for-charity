@@ -54,3 +54,42 @@
     }
   }
 }
+
+.chosen-container-single .chosen-single,
+.chosen-container-active.chosen-with-drop .chosen-single {
+  border-radius: 0;
+  box-shadow: none;
+  background: white;
+  border: none;
+}
+
+
+.chosen-container-single {
+  .chosen-single {
+    line-height: 3.5rem;
+    height: 3.45rem;
+
+    &,
+    .chosen-drop {
+      box-shadow: 0px 0px 1px rgba(0,0,0,0.1) inset;
+    }
+
+    div {
+      top: 50%;
+      margin-top: -.8em;
+
+      b {
+        width: 10px;
+      }
+    }
+
+    .chosen-drop {
+      border: none;
+    }
+  }
+
+  .chosen-results li.highlighted {
+    background: color("primary");
+    color: white;
+  }
+}

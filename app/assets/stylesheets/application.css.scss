@@ -206,3 +206,19 @@
     }
   }
 }
+
+.msg {
+  background: white;
+  border-top: 2px solid;
+  padding: 0.5em 1em;
+}
+
+.msg-error {
+  border-top-color: color("error");
+  color: color("error");
+}
+
+.msg-notice {
+  border-top-color: color("notice");
+  color: color("notice");
+}
