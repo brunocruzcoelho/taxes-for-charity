@@ -1,4 +1,16 @@
-= render :partial => 'charity_associations/search_box', :locals => { :show_steps => true }
+:javascript
+  $(function(){
+    $('#search').on('ajax:success', function(event, data) {
+      $('#search_results').html(data);
+      $('#steps').html('');
+    });
+  });
+
+.search-box
+  .content
+    = render :partial => 'charity_associations/search_box'
+
+    #search_results.search-results
 
 .info-box#info
   .content
@@ -19,4 +31,3 @@
     %h2 Sobre o meioporcento.pt
 
     %p Este projecto procura facilitar a procura de entidades abrangidas e reconhecidas pelo Estado. O contribuinte pode através da causa ou localização encontrar a entidade a quem doar parte do seu IRS.
-

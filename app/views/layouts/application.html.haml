@@ -11,6 +11,9 @@
   = stylesheet_link_tag("application.css")
   = stylesheet_link_tag("small.css", :media => "only screen and (max-width: 40.063em)")
 
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
   %script{:src => "//use.typekit.net/twz1zse.js"}
   %script try{Typekit.load();}catch(e){}
 - body_classes = params[:action].present? ? "action-#{params[:action]}" : ""
@@ -38,23 +41,3 @@
 
   %footer.content.text-center
     &copy; 2015 — meioporcento.pt
-
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
-
--# <!DOCTYPE html>
--# <html>
--# <head>
--#   <title>Taxes for Charity</title>
--#   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
--#   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
--#   <%= csrf_meta_tags %>
--# </head>
--# <body>
-
--# <%= yield %>
-
--# XX
-
-
--# </body>
--# </html>
