@@ -38,4 +38,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.google_analytics_key = ENV['GOOGLE_ANALYTICS_KEY'] || 'no_key'
 end
