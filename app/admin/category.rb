@@ -1,4 +1,4 @@
-ActiveAdmin.register ActivityCode do
+ActiveAdmin.register Category do
 
 
   # See permitted parameters documentation:
@@ -13,6 +13,6 @@ ActiveAdmin.register ActivityCode do
   #   permitted << :other if resource.something?
   #   permitted
   # end
-  permit_params :name, :code, :category_id
+  permit_params :name
 
 end
