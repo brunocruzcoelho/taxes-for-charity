@@ -15,4 +15,14 @@ ActiveAdmin.register ActivityCode do
   # end
   permit_params :name, :code, :category_id
 
+  index do
+    selectable_column
+    column :id, sortable: true
+    column :code, sortable: true
+    column :name, sortable: true
+    column :category, sortable: true
+    column :updated_at, sortable: true
+    actions
+  end
+
 end
