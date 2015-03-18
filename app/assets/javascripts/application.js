@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require chosen.jquery
+
+$(function() {
+  $('select').chosen({
+    width: '100%'
+  });
+});
