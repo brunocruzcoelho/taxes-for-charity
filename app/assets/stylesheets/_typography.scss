@@ -1,0 +1,15 @@
+body {
+  font-family: "proxima-nova", "Avenir Next", sans-serif;
+
+  *,
+  .button,
+  button {
+    font-family: inherit;
+  }
+}
+
+::selection {
+  color: white;
+  background: color("primary");
+  text-shadow: none;
+}

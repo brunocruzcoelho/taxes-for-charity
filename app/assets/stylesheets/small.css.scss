@@ -1,0 +1,44 @@
+@import "colors";
+
+.search-line > .field + .field {
+  border-left: 0;
+  border-top: 1px solid color("gray-light");
+}
+
+
+.search-results {
+
+  table {
+    width: 100%;
+    font-size: 1.2em;
+  }
+
+  td,
+  tr,
+  tbody {
+    display: block;
+  }
+
+  td {
+    width: 100%;
+
+    &:before {
+      content: attr(data-column);
+      display: block;
+      text-transform: uppercase;
+      color: color("text-ghost");
+      font-weight: 400;
+      font-size: 0.8em;
+      letter-spacing: 1px;
+    }
+  }
+
+  .col-instituicao {
+    font-size: 1em;
+    line-height: 1.4;
+  }
+
+  tr {
+    border-bottom: 2px solid color("secondary");
+  }
+}

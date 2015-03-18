@@ -1,0 +1,50 @@
+.search-box
+  .content
+    - if flash[:notice].present?
+      %p.msg.msg-notice
+        = flash[:notice]
+
+    - if flash[:error].present?
+      %p.msg.msg-error
+      = flash[:error]
+
+    = form_tag search_charity_associations_path, method: 'get' do
+      %p.search-line
+        %span.small-12.medium-3.large-4.field
+          = text_field_tag :search_term, params[:search_term], :placeholder => "O que procura?"
+        %span.small-12.medium-3.field
+          %label{:class => "assist", :for => "tipo_causa"} Tipo de causa
+          = select_tag :activity_code, options_from_collection_for_select(ActivityCode.all, :id, :name), :prompt => 'Todas as causas', :id => 'tipo_causa', :data => { :placeholder => 'Escolha uma causa' }
+        %span.small-12.medium-3.field
+          %label{:class => "assist", :for => "localidade"} Localidade
+          = select_tag :city, options_for_select(CharityAssociation.uniq.pluck(:city)), :prompt => 'Em Portugal', :id => 'localidade', :data => { :placeholder => 'Escolha uma localidade' }
+
+        %span.small-12.medium-3.large-2
+          %button{:type => "submit", :class => "button submit"} Pesquisar
+
+    - if defined?(show_steps) && show_steps
+      %ul.steps
+        %li
+          %p
+            %span.icon
+              %i.i-procurar
+            %strong Procurar
+            Procure por instituições perto de si ou
+            por uma causa que acredite.
+
+        %li
+          %p
+            %span.icon
+              %i.i-doar
+            %strong Doar
+            Use o
+            %abbr{:title => "Número de Identificação Fiscal"} NIF
+            da instituição para doar 0.5% do seu IRS, sem qualquer custo.
+
+        %li
+          %p
+            %span.icon
+              %i.i-ajudar
+            %strong Ajudar
+            As instituições mais próximas de si vão apreciar a
+            benvinda ajuda.

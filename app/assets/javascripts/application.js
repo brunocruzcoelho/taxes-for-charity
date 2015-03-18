@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require chosen.jquery
+
+$(function() {
+  $('select').chosen({
+    disable_search_threshold: 10,
+    width: '100%'
+  });
+});
