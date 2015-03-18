@@ -1,6 +1,8 @@
 class CharityAssociationsController < ApplicationController
   def search
-    render(partial: 'search_results', locals: { message: 'Introduza termos de pesquisa, por favor.' }) and return if params[:search_term].blank?
+    if params[:city].blank? && params[:activity_code].blank?
+      return render(partial: 'search_results', locals: { message: 'Introduza termos de pesquisa, por favor.' })
+    end
 
     chain = default_chain(params[:search_term])
     chain = chain.where(city: params[:city]) unless params[:city].blank?
