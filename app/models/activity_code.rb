@@ -1,5 +1,6 @@
 class ActivityCode < ActiveRecord::Base
   has_one :charity_association
+  belongs_to :category
 
   validates :name, presence: true
 
