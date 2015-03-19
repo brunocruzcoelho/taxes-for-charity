@@ -12,7 +12,7 @@
       - @charity_associations.each do |charity_association|
         %tr
           %td.col-instituicao{:data => { :column => "Instituição" }}= charity_association.name
-          %td.col-causa{:data => { :column => "Causa" }}= charity_association.activity_code.try { |ac| "#{ac.name}" }
+          %td.col-causa{:data => { :column => "Causa" }}= charity_association.activity_code.category.name
           %td.col-localidade{:data => { :column => "Localidade" }}= charity_association.city
           %td.col-nif{:data => { :column => "NIF" }}= charity_association.nif
 - else

@@ -1,12 +1,16 @@
 class CharityAssociationsController < ApplicationController
   def search
-    if params[:city].blank? && params[:activity_code].blank?
+    if params[:city].blank? && params[:category_id].blank?
       return render(partial: 'search_results', locals: { message: 'Introduza termos de pesquisa, por favor.' })
     end
 
-    chain = default_chain(params[:search_term])
+    chain = CharityAssociation
+    chain = chain.where("lower(name) LIKE ?", "%#{(search_term).downcase}%") unless params[:search_term].blank?
     chain = chain.where(city: params[:city]) unless params[:city].blank?
-    chain = chain.where(activity_code_id: params[:activity_code]) unless params[:activity_code].blank?
+
+    unless params[:category_id].blank?
+      chain = chain.joins(:activity_code).where('activity_codes.category_id = ?', params[:category_id])
+    end
 
     @charity_associations = chain
 
@@ -15,11 +19,5 @@ class CharityAssociationsController < ApplicationController
     else
       render partial: 'search_results', locals: { message: 'Não foram encontradas instituições. Tente redefinir os termos de pesquisa, por favor.' }
     end
-  end
-
-  private
-
-  def default_chain(search_term)
-    CharityAssociation.where("lower(name) LIKE ?", "%#{(search_term).downcase}%")
   end
 end
