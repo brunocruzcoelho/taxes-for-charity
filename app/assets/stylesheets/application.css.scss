@@ -14,19 +14,24 @@
  *= require "foundation-5.5.1.css"
  *= require "chosen.scss"
  */
- @import "colors";
- @import "typography";
- @import "search";
- @import "icomoon";
+@import "colors";
+@import "typography";
+@import "search";
+@import "icomoon";
 
- .content {
-  width: 90%;
-  max-width: 68rem;
-  margin: 0 auto;
- }
+.content {
+width: 90%;
+max-width: 68rem;
+margin: 0 auto;
+}
 
-body > footer {
-  padding-bottom: 1em;
+body {
+  color: #73747a;
+  min-width: 290px;
+
+  > footer {
+    padding-bottom: 1em;
+  }
 }
 
 a {
@@ -41,10 +46,10 @@ a {
 }
 
 body {
-  border: 16px solid #dfe0e6;
+  border: 16px solid #f4f4f4;
   height: auto;
   min-height: 100%;
-  background: color("gray-extra-light");
+  background: white;
 }
 
 .action-search .search-results,
@@ -128,10 +133,15 @@ body {
 }
 
 .sub-sub-title {
-  font-size: 1.4em;
+  font-size: 1.5rem;
+  line-height: 1.5;
   max-width: 30em;
   margin-left: auto;
   margin-right: auto;
+
+  @media only screen and (max-width: 40.063em) {
+    font-size: 1.125rem;
+  }
 }
 
 .results {
@@ -216,18 +226,14 @@ body {
 }
 
 .msg {
-  background: white;
-  border-top: 2px solid;
-  padding: 0.5em 1em;
+  padding: 0 1em 0.5em 1em;
 }
 
 .msg-error {
-  border-top-color: color("error");
   color: color("error");
 }
 
 .msg-notice {
-  border-top-color: color("notice");
   color: color("notice");
 }
 

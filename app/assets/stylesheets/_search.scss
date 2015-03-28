@@ -1,19 +1,12 @@
-.search-box {
-  background: color("gray-extra-light");
-}
 .search-line {
   border-radius: 10px;
-  border: 10px solid color("gray-light");
+  border: 10px solid #f4f4f4;
   font-size: 0;
-  background-color: color("gray-light");
+  background-color: #f4f4f4;
 
   > * {
     font-size: 16px;
     font-size: 1rem;
-  }
-
-  > .field + .field {
-    border-left: 1px solid color("gray-light");
   }
 
   > *,
@@ -33,6 +26,10 @@
     margin-bottom: 0;
   }
 
+  #search & * {
+    box-shadow: none;
+  }
+
   .submit {
     background-color: color("primary");
     width: 100%;
@@ -46,11 +43,82 @@
 
     &:focus,
     &:hover {
-      background-color: color("primary", "darken");
+      background-color: #0095d9;
     }
 
     &:active {
       transform: translate(1px, 1px);
+    }
+  }
+
+  // border input: #ccc
+  // border botao: #0095d9
+  // color botao: #00a8f5
+  #search & {
+    ::-webkit-input-placeholder {
+       color: #73747a;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+       color: #73747a;
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: #73747a;
+    }
+
+    :-ms-input-placeholder {
+       color: #73747a;
+    }
+
+    input,
+    .chosen-container {
+      &,
+      * {
+        color: inherit;
+      }
+    }
+    .button {
+      border: 1px solid #0095d9;
+      background-color: #00a8f5;
+      padding-top: 1.1rem;
+      padding-bottom: 1.1rem;
+    }
+
+    @media only screen and (max-width: 40.063em) {
+      > * {
+        border: 1px solid #ccc;
+        border-bottom-width: 0;
+      }
+
+      > :first-child {
+        border-radius: 4px 4px 0 0;
+        overflow: hidden;
+      }
+
+      > :last-child {
+        border-width: 0;
+      }
+
+      .button {
+        border-radius: 0 0 4px 4px;
+      }
+    }
+
+    @media only screen and (min-width: 40.063em) {
+      .field > input,
+      .chosen-container {
+        box-sizing: content-box;
+        border: 1px solid #ccc;
+      }
+
+      #search_term {
+        border-right: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-radius: 4px 0 0 4px;
+        overflow: hidden;
+      }
     }
   }
 }
@@ -89,8 +157,11 @@
   }
 
   .chosen-results li.highlighted {
-    background: color("primary");
-    color: white;
+    &,
+    #search & {
+      background: color("primary");
+      color: white;
+    }
   }
 }
 
