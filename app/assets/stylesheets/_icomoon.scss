@@ -1,0 +1,50 @@
+@font-face {
+	font-family: 'meioporcento';
+	src: font-url('meioporcento.eot?7k97a4');
+	src: font-url('meioporcento.eot?#iefix7k97a4') format('embedded-opentype'),
+		font-url('meioporcento.woff?7k97a4') format('woff'),
+		font-url('meioporcento.ttf?7k97a4') format('truetype'),
+		url(font-path('meioporcento.svg') + "?7k97a4#meioporcento") format('svg');
+
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="i-"], [class*=" i-"] {
+	font-family: 'meioporcento';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.i-eye-plus:before {
+	content: "\e9cf";
+}
+
+.i-question:before {
+	content: "\ea09";
+}
+
+.i-info:before {
+	content: "\ea0c";
+}
+
+.i-facebook:before {
+	content: "\ea8c";
+}
+
+.i-twitter:before {
+	content: "\ea91";
+}
+
+.i-github3:before {
+	content: "\eab3";
+}
+
