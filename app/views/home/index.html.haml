@@ -12,69 +12,86 @@
 
     #search_results.search-results
 
-.info-box#info
-  .content
-    %h2 Como funciona
+%article#ipss-info.reveal-modal{:aria_labelledby => "modalTitle", :aria_hidden => "true", :role => "dialog", :data => { :reveal => true }}
+  %h2#modalTitle Como fazer?
+  %p.lead
+    Insira o
+    %abbr{:title => "Número de Identificação de Pessoa Coletiva"} NIPC
+    %span.ipss-number-place
+    no
+    %abbr{:title => "Benefícios Fiscais e Deduções"} Quadro 9
+    do
+    %abbr{:title => "Instituições Particulares de Solidariedade Social ou Pessoas Coletivas de Utilidade Pública"} Anexo H
+    da Declaração do IRS.
+  %p.image-preview
+    %img{:src => image_path("anexoH_quadro9.png"), :alt => ""}
 
-    %p
-      Todos os anos, ao entregar a sua declaração do IRS, pode
-      %b doar 0.5% do imposto total liquidado pelo Estado
-      a uma Instituição de Solidariedade Social, a uma Pessoa Colectiva de
-      Utilidade Púbica ou a uma Instituição Religiosa. Esta operação não acarreta nenhuns custos para o contribuinte e
-      não afecta o valor a receber em caso de reembolso, pois apenas permite desviar 0.5% do imposto que entraria nos
-      cofres do Estado para uma instituição escolhida pelo contribuinte. Este ato, denominado consignação do IRS, é
-      regulado pelos n.ºs 4 e 6 do artigo 32.º da Lei n.º 16/2001 de 22 de Junho.
+  %hr
 
-    %p
-      Este ano há a possibilidade de ajudar ainda mais pois, além da doação de 0.5% do seu IRS, pode ainda
-      %b doar 15% do IVA suportado
-      , em faturas de prestações de serviços comunicadas à Autoridade
-      Tributária, respeitantes a quatro setores de atividades: reparação de automóveis, reparação de motociclos,
-      alojamento e restauração e cabeleireiros ou institutos de beleza. O contribuinte pode assim optar por receber a
-      dedução de IVA no IRS ou entregá-la a uma instituição. Neste caso já existem custos para o sujeito passivo,
-      pois a contribuição é retirada do seu bolso e não ao Estado.
+  %h2 Como funciona?
 
-    %p
-      Para tal, basta preencher a sua declaração anual de IRS (em papel ou online) no
-      %b quadro 9 (Benefícios Fiscais e Deduções) do anexo H (Instituições Particulares de Solidariedade Social ou Pessoas Coletivas de Utilidade Pública)
-      com o número de contribuinte (NIPC) da entidade pretendida e assinalar o tipo de apoio pretendido: consignação do
-      IRS, dedução do IVA ou ambos.
+  %p
+    Todos os anos, ao entregar a sua declaração do IRS, pode
+    %b doar 0.5% do imposto total liquidado pelo Estado
+    a uma Instituição de Solidariedade Social, a uma Pessoa Colectiva de
+    Utilidade Púbica ou a uma Instituição Religiosa. Esta operação não acarreta nenhuns custos para o contribuinte e
+    não afecta o valor a receber em caso de reembolso, pois apenas permite desviar 0.5% do imposto que entraria nos
+    cofres do Estado para uma instituição escolhida pelo contribuinte. Este ato, denominado consignação do IRS, é
+    regulado pelos n.ºs 4 e 6 do artigo 32.º da Lei n.º 16/2001 de 22 de Junho.
 
-    %h2 Sobre o meioporcento.pt
+  %p
+    Este ano há a possibilidade de ajudar ainda mais pois, além da doação de 0.5% do seu IRS, pode ainda
+    %b doar 15% do IVA suportado
+    , em faturas de prestações de serviços comunicadas à Autoridade
+    Tributária, respeitantes a quatro setores de atividades: reparação de automóveis, reparação de motociclos,
+    alojamento e restauração e cabeleireiros ou institutos de beleza. O contribuinte pode assim optar por receber a
+    dedução de IVA no IRS ou entregá-la a uma instituição. Neste caso já existem custos para o sujeito passivo,
+    pois a contribuição é retirada do seu bolso e não ao Estado.
 
-    %p
-      Este projeto procura facilitar a pesquisa de entidades elegíveis ao benefício fiscal da consignação de quota do IRS e dedução do IVA.
-      Aqui, o contribuinte pode, através da causa ou localização, encontrar a entidade a quem doar parte do seu imposto.
+  %p
+    Para tal, basta preencher a sua declaração anual de IRS (em papel ou online) no
+    %b quadro 9 (Benefícios Fiscais e Deduções) do anexo H (Instituições Particulares de Solidariedade Social ou Pessoas Coletivas de Utilidade Pública)
+    com o número de contribuinte (NIPC) da entidade pretendida e assinalar o tipo de apoio pretendido: consignação do
+    IRS, dedução do IVA ou ambos.
 
-    %p
-      A lista de entidades aqui apresentada foi obtida no
-      = link_to 'Portal das Finanças', 'http://info.portaldasfinancas.gov.pt/NR/rdonlyres/001D01F0-19AA-4942-A54E-7BE37A7C3DA9/0/Consignacao_colecta_IRS_Lista_entidades.xls', target: '_blank'
-      (última atualização 26-02-2015).
 
-      As causas das organizações foram inferidas através de informação disponível no
-      = link_to 'Sistema Informação de Classificação Portuguesa de Atividades Económicas', 'http://www.sicae.pt/'
-      = '.'
-      Os dados aqui apresentados são relativos à entrega do IRS em 2015 (ano fiscal de 2014).
+  %a.close-reveal-modal{:aria_label => "Close"} &#215;
 
-    %p
-      Este projeto não tem fins lucrativos. O código fonte utilizado é aberto (open-source) e está disponível no
-      = link_to 'GitHub', 'https://github.com/bmccoelho/taxes-for-charity'
-      = '.'
-      Este projeto foi desenvolvido por
-      = link_to 'André Luís', 'https://twitter.com/andr3'
-      ,
-      = link_to 'Bruno Coelho', 'https://twitter.com/bmccoelho'
-      ,
-      = link_to 'Leihla Pinho', 'https://twitter.com/Leihla'
-      e
-      = link_to 'Mário Nzualo', 'https://twitter.com/marionzualo'
-      = '.'
-    %p
-      Para questões relacionadas com o projecto, contacte-nos através do e-mail
-      = mail_to 'media@meioporcento.pt'
-      = '.'
-      Pode também receber atualizações do projeto no
-      = link_to 'Facebook', 'https://www.facebook.com/meioporcentopt'
-      e no
-      = link_to 'Twitter', 'https://twitter.com/meioporcento_pt'
-      = '.'
+%article#about-info.reveal-modal{:aria_labelledby => "modalTitle", :aria_hidden => "true", :role => "dialog", :data => { :reveal => true }}
+  %h2#modalTitle Sobre o meioporcento.pt
+
+  %p
+    Este projeto procura facilitar a pesquisa de entidades elegíveis ao benefício fiscal da consignação de quota do IRS e dedução do IVA.
+    Aqui, o contribuinte pode, através da causa ou localização, encontrar a entidade a quem doar parte do seu imposto.
+
+  %p
+    A lista de entidades aqui apresentada foi obtida no
+    = link_to 'Portal das Finanças', 'http://info.portaldasfinancas.gov.pt/NR/rdonlyres/001D01F0-19AA-4942-A54E-7BE37A7C3DA9/0/Consignacao_colecta_IRS_Lista_entidades.xls', target: '_blank'
+    (última atualização 26-02-2015).
+
+    As causas das organizações foram inferidas através de informação disponível no
+    = link_to 'Sistema Informação de Classificação Portuguesa de Atividades Económicas', 'http://www.sicae.pt/'
+    = '.'
+    Os dados aqui apresentados são relativos à entrega do IRS em 2015 (ano fiscal de 2014).
+
+  %p
+    Este projeto não tem fins lucrativos. O código fonte utilizado é aberto (open-source) e está disponível no
+    = link_to 'GitHub', 'https://github.com/bmccoelho/taxes-for-charity'
+    = '.'
+    Este projeto foi desenvolvido por
+    <a href="https://twitter.com/andr3">André Luís</a>,
+    <a href="https://twitter.com/andr3">Bruno Coelho</a>,
+    <a href="https://twitter.com/Leihla">Leihla Pinho</a> e
+    <a href="https://twitter.com/andr3">Mário Nzualo</a>.
+
+  %p
+    Para questões relacionadas com o projecto, contacte-nos através do e-mail
+    = mail_to 'media@meioporcento.pt'
+    = '.'
+    Pode também receber atualizações do projeto no
+    = link_to 'Facebook', 'https://www.facebook.com/meioporcentopt'
+    e no
+    = link_to 'Twitter', 'https://twitter.com/meioporcento_pt'
+    = '.'
+
+  %a.close-reveal-modal{:aria_label => "Close"} &#215;

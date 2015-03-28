@@ -4,8 +4,10 @@
   <!--[if IE 9]><html lang="en-US" class="no-js ie9"><![endif]-->
   <!--[if !IE]><!--><html lang="en-US" class="no-js"><!--<![endif]-->
 %head
-  %title meio por cento . pt— Reverta 0.5% do seu IRS e/ou 15% de parte do seu IVA suportado a uma instituição de cariz social
+  %title meio por cento
   %meta{:name => "viewport", :content => "width=device-width,initial-scale=1"}
+  %meta{:name => "description", :content => "Reverta 0.5% do seu IRS e/ou 15% de parte do seu IVA suportado a uma instituição de cariz social"}
+  %meta{:name => "keywords", :content => "consignação irs iva impostos irs2014 irs2015 anexoH modelo3 IPSS instituição particular de solidariedade social cariz social"}
   %meta{:"http-equiv" => "X-UA-Compatible", :content => "IE=edge,Chrome=1"}
 
   = stylesheet_link_tag("application.css")
@@ -23,14 +25,12 @@
       %h1.site-title<>
         %a.site-root{:href => root_path}
           %span meio por cento
-        %a.info{:href => "#info"}
-          %span.assist mais informação
 
       - if content_for?(:subtitles)
         = yield(:subtitles)
       - else
-        %p.sub-title A forma mais fácil de ajudar.
         %p.sub-sub-title
+          A forma mais fácil de ajudar.
           Reverta
           %b 0.5%
           do seu
@@ -40,6 +40,12 @@
           de parte do seu
           %abbr{:title => "Imposto sobre o Valor Acrescentado"}IVA
           suportado a uma instituição de cariz social.
+    %nav
+      %ul
+        %li
+          %a{:href => "#about-info", :data => { :reveal_id => "about-info" }} Sobre
+        %li
+          %a{:href => "#ipss-info", :data => { :reveal_id => "ipss-info" }} Como funciona?
 
   = yield
 
