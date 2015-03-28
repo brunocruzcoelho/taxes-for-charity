@@ -14,8 +14,24 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require chosen.jquery
+//= require foundation/foundation.min
+//= require foundation/foundation.reveal
 
 $(function() {
+  $(document).foundation();
+  $(document).ajaxComplete(function() {
+    $(document).foundation('reveal', 'reflow'); // re-check for reveal's
+  });
+
+  $(document).on('click', '.more-info', function() {
+    // update the NIF box
+    $('.ipss-number-place').html($(this).data('nipc'));
+  });
+
+  $(document).on('click', '.search-results tr', function() {
+    $(this).find('.more-info').trigger('click');
+  });
+
   $('select').chosen({
     width: '100%'
   });

@@ -93,3 +93,44 @@
     color: white;
   }
 }
+
+.more-info {
+  padding: 0.1em 1em 0;
+  background-color: color("primary");
+  color: white;
+  margin: 0;
+  transition-duration: 0.1s;
+
+  &:hover,
+  tr:hover & {
+    background: white;
+    color: color("primary");
+  }
+}
+
+.search-results {
+  table tr {
+    cursor: pointer;
+    cursor: hand;
+  }
+}
+
+.ipss-number-place {
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+
+.image-preview {
+  position: relative;
+
+  .ipss-number-place {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+  }
+}
+
+.lead {
+  font-weight: 800;
+}
