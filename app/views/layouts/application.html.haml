@@ -34,9 +34,14 @@
 %body{:class => body_classes}
   %header.site-header
     .content
-      %h1.site-title<>
-        %a.site-root{:href => root_path}
-          %span meio por cento
+      - if true
+        %h1.site-title.site-title-graphic<>
+          %a.site-root{:href => root_path}
+            %span meio por cento
+      - else
+        %h1.site-title<>
+          %a.site-root{:href => root_path}
+            %span meio por cento
 
       - if content_for?(:subtitles)
         = yield(:subtitles)
