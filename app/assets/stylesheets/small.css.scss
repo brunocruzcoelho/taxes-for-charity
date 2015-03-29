@@ -1,6 +1,10 @@
 @import "colors";
 
-.search-line > .field + .field {
+body {
+  border: 0;
+}
+
+search-line > .field + .field {
   border-left: 0;
   border-top: 1px solid color("gray-light");
 }
@@ -21,6 +25,7 @@
 
   td {
     width: 100%;
+    padding: 8px 16px;
 
     &:before {
       content: attr(data-column);
@@ -34,11 +39,24 @@
   }
 
   .col-instituicao {
-    font-size: 1em;
-    line-height: 1.4;
+    padding-top: 16px;
+  }
+
+  tr:hover td:before {
+    color: white;
   }
 
   tr {
-    border-bottom: 2px solid color("secondary");
+    position: relative;
+  }
+
+  .col-info {
+    padding: 0;
+  }
+
+  .more-info {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
   }
 }

@@ -1,8 +1,12 @@
-.search-line {
+.search-line,
+.results-table {
   border-radius: 10px;
   border: 10px solid #f4f4f4;
-  font-size: 0;
   background-color: #f4f4f4;
+}
+
+.search-line {
+  font-size: 0;
 
   > * {
     font-size: 16px;
@@ -176,8 +180,9 @@
   &:focus,
   &:active,
   tr:hover & {
-    background: white;
-    color: color("primary");
+    background: none;
+    color: white;
+    outline: 0;
   }
 
   i {
@@ -211,4 +216,22 @@
 
 .lead {
   font-weight: 800;
+}
+
+.search-results {
+  td,
+  th {
+    padding: 1rem;
+  }
+
+  table {
+    border-radius: 4px;
+    overflow: hidden;
+    border-color: #ccc;
+    margin-bottom: 0;
+  }
+
+  th {
+    border-bottom: 1px solid #ccc;
+  }
 }

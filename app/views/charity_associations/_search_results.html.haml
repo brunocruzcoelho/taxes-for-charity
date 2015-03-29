@@ -1,26 +1,28 @@
 .search_results
 - if @charity_associations && @charity_associations.any?
   %h2.section-title #{@charity_associations.count} resultados
-  %table
-    %thead.hide-for-small
-      %tr
-        %th.small-5 Instituição
-        %th.small-4 Causa
-        %th.small-2 Localidade
-        %th.small-1 NIF
-        %th
-    %tbody
-      - @charity_associations.each do |charity_association|
+
+  .results-table
+    %table
+      %thead.hide-for-small
         %tr
-          %td.col-instituicao{:data => { :column => "Instituição" }}= charity_association.name
-          %td.col-causa{:data => { :column => "Causa" }}= charity_association.activity_code.category.name
-          %td.col-localidade{:data => { :column => "Localidade" }}= charity_association.city
-          %td.col-nif{:data => { :column => "NIF" }}
-            %span.nif= charity_association.nif
-          %td.col-info
-            %button.more-info{:data => { :nipc => charity_association.nif, :reveal_id => "ipss-info" }}
-              %span.assist Como?
-              %i.i-eye-plus
+          %th.small-5 Instituição
+          %th.small-4 Causa
+          %th.small-2 Localidade
+          %th.small-1 NIF
+          %th
+      %tbody
+        - @charity_associations.each do |charity_association|
+          %tr
+            %td.col-instituicao{:data => { :column => "Instituição" }}= charity_association.name
+            %td.col-causa{:data => { :column => "Causa" }}= charity_association.activity_code.category.name
+            %td.col-localidade{:data => { :column => "Localidade" }}= charity_association.city
+            %td.col-nif{:data => { :column => "NIF" }}
+              %span.nif= charity_association.nif
+            %td.col-info
+              %button.more-info{:data => { :nipc => charity_association.nif, :reveal_id => "ipss-info" }}
+                %span.assist Como?
+                %i.i-eye-plus
 
 
 - else
