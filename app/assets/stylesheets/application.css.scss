@@ -100,30 +100,19 @@ body {
     }
   }
 
-  .info {
-    margin-left: 0.25em;
-    margin-right: -1.25em;
-    overflow: hidden;
-    width: 1.2rem;
-    height: 1.2rem;
-    background: #ccc;
-    color: white;
-    border-radius: 100em;
-    display: inline-block;
-    position: relative;
-
-    &:before {
-      content: "i";
-      position: absolute;
-      text-align: center;
+  &.site-title-graphic {
+    span {
+      text-indent: -9999em;
+      width: 172px;
+      height: 112px;
+      background: url(image-path('meioporcento.png')) no-repeat center center;
       display: block;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      line-height: 1.2;
-      font-size: 18px;
-      font-weight: 800;
+      background-size: 100% auto;
+      margin-bottom: 1.25rem;
+
+      &:before {
+        display: none;
+      }
     }
   }
 }
