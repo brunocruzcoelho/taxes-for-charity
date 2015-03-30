@@ -1,6 +1,6 @@
 class CharityAssociationsController < ApplicationController
   def search
-    if params[:city].blank? && params[:category_id].blank?
+    if (params[:city].blank? && params[:category_id].blank? && params[:search_term].blank?)
       return render(partial: 'search_results', locals: { message: 'Introduza termos de pesquisa, por favor.' })
     end
 
