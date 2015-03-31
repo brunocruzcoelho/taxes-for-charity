@@ -29,7 +29,7 @@ $(function() {
   });
 
   $(document).on('click', '.search-results tr', function() {
-    $(this).find('.more-info').trigger('click');
+    $('#' + $(this).find('[data-reveal-id]').attr('data-reveal-id')).foundation('reveal', 'open');
   });
 
   $('select').chosen({
