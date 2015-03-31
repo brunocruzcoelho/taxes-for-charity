@@ -29,7 +29,14 @@ $(function() {
   });
 
   $(document).on('click', '.search-results tr', function() {
-    $('#' + $(this).find('[data-reveal-id]').attr('data-reveal-id')).foundation('reveal', 'open');
+    var $button = $(this).find('[data-reveal-id]');
+    $('#' + $button.attr('data-reveal-id')).foundation('reveal', 'open');
+
+    $('.ipss-number-place').html($button.data('nipc'));
+  });
+
+  $('nav a[data-reveal-id="ipss-info"]').on('click', function() {
+    $('.ipss-number-place').html('');
   });
 
   $('select').chosen({
