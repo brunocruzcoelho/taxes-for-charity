@@ -5,7 +5,7 @@ class CharityAssociationsController < ApplicationController
     end
 
     chain = CharityAssociation
-    chain = chain.where("lower(name) LIKE ?", "%#{(params[:search_term]).downcase}%") unless params[:search_term].blank?
+    chain = chain.where("lower(charity_associations.name) LIKE ?", "%#{(params[:search_term]).downcase}%") unless params[:search_term].blank?
     chain = chain.where(city: params[:city]) unless params[:city].blank?
 
     unless params[:category_id].blank?
