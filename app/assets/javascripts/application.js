@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require chosen.jquery
+//= require jquery-scrollto
 //= require foundation/foundation.min
 //= require foundation/foundation.reveal
 
@@ -23,9 +24,17 @@ $(function() {
     $(document).foundation('reveal', 'reflow'); // re-check for reveal's
   });
 
+  var goToModal = function() {
+    setTimeout(function() {
+      $('body > .reveal-modal.open').ScrollTo();
+    }, 500);
+  };
+
   $(document).on('click', '.more-info', function() {
     // update the NIF box
     $('.ipss-number-place').html($(this).data('nipc'));
+
+    goToModal();
   });
 
   $(document).on('click', '.search-results tr', function() {
@@ -33,10 +42,13 @@ $(function() {
     $('#' + $button.attr('data-reveal-id')).foundation('reveal', 'open');
 
     $('.ipss-number-place').html($button.data('nipc'));
+
+    goToModal();
   });
 
   $('nav a[data-reveal-id="ipss-info"]').on('click', function() {
     $('.ipss-number-place').html('');
+    goToModal();
   });
 
   $('select').chosen({
