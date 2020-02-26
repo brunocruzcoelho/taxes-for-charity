@@ -1,0 +1,39 @@
+version: '3.4'
+
+services:
+  development:
+    build:
+      context: .
+      args:
+        BUNDLE_GITHUB__COM: ${BUNDLE_GITHUB__COM}
+    environment:
+      - BUNDLE_GITHUB__COM=${BUNDLE_GITHUB__COM}
+      - APP_NAME=taxes-for-charity
+      - RACK_ENV=development
+    ports:
+      - '3000:3000'
+    command: dockerize -wait tcp://postgresql:5432 -timeout 5m
+      sh -c 'bundle exec rails server --port 3000 --binding '0.0.0.0''
+    volumes:
+      - .:/taxes-for-charity
+    depends_on:
+      - postgresql
+    networks:
+      - the_network
+
+  postgresql:
+    image: postgres:10.9
+    environment:
+      - POSTGRES_PASSWORD=tfc_development
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    networks:
+      - the_network
+
+networks:
+ the_network:
+
+volumes:
+  db-data:

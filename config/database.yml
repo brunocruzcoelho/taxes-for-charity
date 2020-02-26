@@ -3,6 +3,7 @@ development:
   encoding: unicode
   database: tfc_development
   pool: 5
+  host: postgresql
   username: tfc_development
   password: tfc_development
 
@@ -11,5 +12,6 @@ test:
   encoding: unicode
   database: tfc_test
   pool: 5
+  host: postgresql
   username: tfc_test
   password: tfc_test
