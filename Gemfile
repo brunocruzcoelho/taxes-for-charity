@@ -13,7 +13,7 @@ gem 'rollbar', '~> 1.4.4'
 # heroku
 gem 'rails_12factor', group: :production
 
-gem 'haml',       '~> 4.0.6'
+gem 'haml',       '~> 5.1.2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier',   '>= 1.3.0'
 
