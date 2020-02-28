@@ -8,7 +8,6 @@ gem 'pg',    '0.18.1'
 gem 'puma', '2.11.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
-gem 'rollbar', '~> 1.4.4'
 
 # heroku
 gem 'rails_12factor', group: :production
