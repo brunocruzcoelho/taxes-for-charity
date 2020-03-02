@@ -1,4 +1,4 @@
-class ActivityCode < ActiveRecord::Base
+class ActivityCode < ApplicationRecord
   has_one :charity_association
   belongs_to :category
 

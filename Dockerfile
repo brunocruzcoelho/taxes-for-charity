@@ -1,4 +1,4 @@
-FROM ashchan/ruby-2.1.5
+FROM ruby:2.4.9
 
 ARG BUNDLE_GITHUB__COM
 ARG BUILD_PACKAGES="build-essential wget git nodejs"

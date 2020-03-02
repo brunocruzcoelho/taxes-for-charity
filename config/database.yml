@@ -1,9 +1,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: tfc_development
   pool: 5
   host: postgresql
+  database: tfc_development
   username: tfc_development
   password: tfc_development
 

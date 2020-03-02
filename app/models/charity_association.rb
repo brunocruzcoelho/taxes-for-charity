@@ -1,4 +1,4 @@
-class CharityAssociation < ActiveRecord::Base
+class CharityAssociation < ApplicationRecord
   belongs_to :activity_code
 
   validates :name, :nif, :city, presence: true
