@@ -1,36 +1,35 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+ruby '2.4.9'
 
-gem 'rails', '4.2.0'
+gem 'rails', '5.0.7.2'
 gem 'pg',    '0.18.1'
 
-gem 'puma', '2.11.0'
-gem 'activeadmin', github: 'activeadmin'
+gem 'puma', '3.7.0'
+gem 'activeadmin'
 gem 'devise'
 
 # heroku
 gem 'rails_12factor', group: :production
 
-gem 'haml',       '~> 4.0.6'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier',   '>= 1.3.0'
+gem 'haml'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails', '~> 4.1', '>= 4.1.1'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc',     '~> 0.4.0', group: :doc
+gem 'jbuilder'
 
 group :development, :test do
   gem 'byebug',        '~> 3.5.1'
   gem 'better_errors', '~> 1.1.0'
   gem 'rubocop',       '~> 0.29.0'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  # # Access an IRB console on exception pages or by using <%= console %> in views
+  # gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-
