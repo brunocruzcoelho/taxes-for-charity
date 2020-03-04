@@ -1,4 +1,4 @@
-FROM ruby:2.5.7
+FROM ruby:2.6.5
 
 ARG BUNDLE_GITHUB__COM
 ARG BUILD_PACKAGES="build-essential wget git nodejs"
@@ -25,6 +25,6 @@ WORKDIR $APP_HOME
 
 ADD Gemfile* $APP_HOME/
 
-#RUN bundle install -j4 --retry 3
+RUN bundle install -j4 --retry 3
 
 ADD . $APP_HOME
