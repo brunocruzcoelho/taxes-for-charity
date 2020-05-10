@@ -25,6 +25,6 @@ WORKDIR $APP_HOME
 
 ADD Gemfile* $APP_HOME/
 
-#RUN bundle install -j4 --retry 3
+RUN bundle install -j4 --retry 3
 
 ADD . $APP_HOME
