@@ -26,7 +26,7 @@ gem 'jbuilder'
 
 group :development, :test do
   gem 'byebug',        '~> 3.5.1'
-  gem 'better_errors', '~> 1.1.0'
+  gem 'better_errors', '~> 2.8.0'
   gem 'rubocop',       '~> 0.29.0'
 
   # # Access an IRB console on exception pages or by using <%= console %> in views
